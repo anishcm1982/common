@@ -37,16 +37,16 @@ publishing {
         }
     }
     repositories {
-    //mavenCentral()
+    mavenCentral()
     
-    mavenLocal()  // Publishes to your local Maven cache
-       // maven {
+    //mavenLocal()  // Publishes to your local Maven cache
+        maven {
             //name = "artifactory"
-            //url = uri("https://artifactory.example.com/artifactory/libs-release-local") // placeholder
-            //credentials {
-               // username = findProperty("artifactory_user") ?: System.getenv("ARTIFACTORY_USER")
-                //password = findProperty("artifactory_password") ?: System.getenv("ARTIFACTORY_PASSWORD")
-            //}
-       // }
-    }
+            url = uri("https://maven.pkg.github.com/${gpr_repo}")
+        	credentials {
+            	username = gpr_user
+            	password = gpr_token
+               }
+        }
+    //}
 }
